@@ -3,6 +3,7 @@ kinput.onkeydown = del;
 
 current = "";
 index = 0;
+count = 0; //letters typed
 
 function keyed(e)
 {
@@ -20,6 +21,7 @@ function keyed(e)
 		//keep track of everything
 		current += char;
 		index++;
+		count++;
 
 		
 		var output = keyCode + ": " + char + " index:" + index;
