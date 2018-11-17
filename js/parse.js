@@ -1,2 +1,2 @@
 real = "one two three four";
-document.getElementById("text").innerHTML = real
+document.getElementById("StringToType").innerHTML = real
