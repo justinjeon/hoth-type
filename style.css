@@ -9,6 +9,13 @@ h1 {
 	font-size: 300%;
 }
 
+p {
+	color: #ffb300;
+	font-family: futura;
+	text-align: center;
+	font-size: 110%;
+}
+
 .input-textbox {
 	text-align: center;
 	font-size: 40px;
