@@ -3,7 +3,12 @@ kinput.onkeydown = del;
 
 current = "";
 index = 0;
-count = 0; //letters typed
+
+count = 0;
+wrong = 0;
+pert = 100;
+percentage = pert.toFixed(2);
+document.getElementById("accuracy").innerHTML = "%" + percentage;
 
 function keyed(e)
 {
@@ -15,17 +20,22 @@ function keyed(e)
 		//compare to the actual
 		if(real.charAt(index) != char)
 		{
-			alert("nope");
+			wrong++;
 		}
 
 		//keep track of everything
 		current += char;
 		index++;
-		count++;
+		count++;	
+		pert = (count - wrong) / count * 100;
+		percentage = pert.toFixed(2);
+		document.getElementById("accuracy").innerHTML = "%" + percentage;
 
 		
 		var output = keyCode + ": " + char + " index:" + index;
 		console.log(output);
+
+		
 	}
 }
 
