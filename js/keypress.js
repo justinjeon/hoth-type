@@ -19,7 +19,7 @@ document.getElementById("accuracy").innerHTML = percentage + "%";
 function reset()
 {
 	current = "";
-	index = -1;
+	index = 0;
 
 	count = 0;
 	wrong = 0;
@@ -45,6 +45,7 @@ function keyed(e)
 		{
 			// index = -1;
 			reset();
+			return;
 			// document
 		}
 
