@@ -26,6 +26,7 @@ function reset()
 	current = "";
 	seconds = 0;
 	minutes = 0;
+	document.getElementById('kinput').value = "";
 	parse();
 }		
 
