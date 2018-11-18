@@ -16,12 +16,28 @@ let setTimer = 0;
 
 document.getElementById("accuracy").innerHTML = percentage + "%";
 
+function reset()
+{
+	count = 0;
+	pert = 100;
+	correct = 0;
+	wrong = 0;
+	index = 0;
+	current = "";
+	seconds = 0;
+	minutes = 0;
+	parse();
+}		
 
 function keyed(e)
 {
 	var keyCode = e.keyCode || e.which || 0;
 	if(keyCode) //if a character is actually read in
 	{
+		if (keyCode == 13)
+		{
+			reset();
+		}
 		timeOn();
 		let char = String.fromCharCode(keyCode)
 		//compare to the actual
