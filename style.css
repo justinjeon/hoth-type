@@ -1,22 +1,20 @@
 body {
-	background-color: #536895;
-}
+	background-color: #66ccff;
 
-h1 {
-	color: #ffb300;
-	font-family: futura;
-	text-align: center;
-	font-size: 300%;
 }
 
 p {
-	color: #ffb300;
+	color: #ffff80;
 	font-family: futura;
 	text-align: center;
-	font-size: 150%;
+	font-size: 170%;
+
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-.input-textbox {
+div {
 	text-align: center;
-	font-size: 40px;
+	font-size: 10px;
 }

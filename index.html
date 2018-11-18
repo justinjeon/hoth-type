@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
   <head>
-    <title>Type Test</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Typing test</title>
 
-    <link rel="stylesheet" type="text/css" href="./style.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="js/parse.js" async></script>
-    <script src="js/timer.js" async></script>
-    <script src="js/keypress.js" async></script>
+      <link rel="stylesheet" type="text/css" href="./style.css">
+      <script src="js/parse.js" async></script>
+      <script src="js/timer.js" async></script>
+      <script src="js/keypress.js" async></script>
   </head>
+
   <body>
-  	<h1>Bible Typing Test</h1><br>
-
-    
-
-
-    <p id="timer">0:00</p>
-    <p id="verse"></p>
-    <p id="StringToType"></p>
-
-    <div class="input-textbox">
-    	<input type="text" style="font-size:35px" id="kinput"><br>
-<!--       <input type="checkbox" id="wpm" onclick="timeron()"> -->
-    </div>
-    <p id="accuracy"></p>
+    <b><p id="verse"></p></b>
     <p id="wpm"></p>
+    <p id="type"></p>
 
+    <div id="thebox">
+      <input type="text" style="font-size:25px" id="kinput" autofocus="autofocus">
+    </div>
+
+    <p id="accuracy"></p>
+    
   </body>
+
 </html>

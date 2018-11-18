@@ -1,88 +1,116 @@
-kinput.onkeypress = keyed;
-kinput.onkeydown = del;
+current = ""; //current string
+index = 0; //where we at?
 
-current = "";
-index = 0;
+count = 0; //how many letters in total
+wrong = 0; //how many wrong in total
+errs = 0; //current uncorrected errors
+errstack = [];
 
-count = 0;
-wrong = 0;
-correct = document.getElementById("correct");
-correct = 0;
-correctword = 0;
+wpm = 0;
+start = 0; //start time
+document.getElementById("wpm").innerHTML = wpm;
+
 pert = 100;
 percentage = pert.toFixed(2);
-
-let setTimer = 0;
-
 document.getElementById("accuracy").innerHTML = percentage + "%";
 
-function reset()
-{
-	current = "";
-	index = 0;
 
-	count = 0;
-	wrong = 0;
-	correct = 0;
-	correctword = 0;
-	pert = 100;
-	percentage = pert.toFixed(2);
-	document.getElementById("accuracy").innerHTML = percentage + "%";
 
-	seconds = 0;
-	minutes = 0;
-	document.getElementById('timer').value = "0:00";
-	document.getElementById('kinput').value = "";
-	parse();
-}		
+
+kinput.onkeypress = keyed;
+kinput.onkeydown = del; //for backspace
 
 function keyed(e)
 {
 	var keyCode = e.keyCode || e.which || 0;
 	if(keyCode) //if a character is actually read in
 	{
-		if (keyCode == 13)
+		//start and ending
+		if(index == 0) start = Date.now();
+		if(index + 1 >= verselen || keyCode == 13) 
 		{
-			// index = -1;
 			reset();
 			return;
-			// document
 		}
 
-		timeOn();
+
 		let char = String.fromCharCode(keyCode)
-		//compare to the actual
-		if(real.charAt(index) != char)
+
+		//correctness checking
+		if(vers.charAt(index) != char)
 		{
 			wrong++;
+
+			
+			errstack.push(index);
+			failed();
+			errs++;
+
+			console.log(index);
 		}
-		else
-		{
-			correct++;
-		}
-		//keep track of everything
-		current += char;
-		index++;
-		count++;
-		start = 1;	
+
+		//keep track of variables now
+		current += char; //add typed character in
+		index++; 
+		count++; //how many letters
+
+
+		//wpm
+		wpm = getwpm();
+		document.getElementById("wpm").innerHTML = wpm;
+
+
+		//accuracy
 		pert = (count - wrong) / count * 100;
 		percentage = pert.toFixed(2);
 		document.getElementById("accuracy").innerHTML = percentage + "%";
-		
 
-		var output = keyCode + ": " + char + " index:" + index;
-		console.log(output);
+
+		//render the verse again
 
 		
+		//just for debugging
+		// var output = keyCode + ": " + char + " index:" + index;
+		// console.log(output);
 	}
 }
 
-function del(e) {
+function del(e) //specifcally for backspace
+{
 	var keyCode = e.keyCode || e.which || 0;
 	if((keyCode == 46 || keyCode == 8) && index > 0)
 	{
 		index--;
 
-		console.log(index)
+		if(index <= errstack[errs - 1])
+		{
+			var a = errstack.pop();
+			right(a);
+
+			errs--;
+		}		
 	}
+}
+
+
+function reset()
+{
+	current = "";
+	index = 0;
+	start = 0;
+
+	count = 0;
+	wrong = 0;
+	errs = 0;
+	errstack = [];
+	wpm = 0;
+
+	pert = 100;
+	percentage = pert.toFixed(2);
+	document.getElementById("accuracy").innerHTML = percentage + "%";
+
+	parse();
+	document.getElementById("wpm").innerHTML = wpm;
+
+	document.getElementById('kinput').value = "";
 }
