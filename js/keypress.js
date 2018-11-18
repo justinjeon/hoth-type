@@ -18,12 +18,16 @@ document.getElementById("accuracy").innerHTML = percentage + "%";
 
 function reset()
 {
-	count = 0;
-	pert = 100;
-	correct = 0;
-	wrong = 0;
-	index = 0;
 	current = "";
+	index = 0;
+
+	count = 0;
+	wrong = 0;
+	correct = 0;
+	correctword = 0;
+	pert = 100;
+	percentage = pert.toFixed(2);
+
 	seconds = 0;
 	minutes = 0;
 	document.getElementById('kinput').value = "";
@@ -39,6 +43,7 @@ function keyed(e)
 		{
 			reset();
 		}
+		
 		timeOn();
 		let char = String.fromCharCode(keyCode)
 		//compare to the actual
