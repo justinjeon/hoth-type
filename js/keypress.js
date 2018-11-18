@@ -19,7 +19,7 @@ document.getElementById("accuracy").innerHTML = percentage + "%";
 function reset()
 {
 	current = "";
-	index = 0;
+	index = -1;
 
 	count = 0;
 	wrong = 0;
@@ -30,6 +30,7 @@ function reset()
 
 	seconds = 0;
 	minutes = 0;
+	document.getElementById('timer').value = "0:00";
 	document.getElementById('kinput').value = "";
 	parse();
 }		
@@ -41,7 +42,9 @@ function keyed(e)
 	{
 		if (keyCode == 13)
 		{
+			// index = -1;
 			reset();
+			// document
 		}
 		
 		timeOn();
