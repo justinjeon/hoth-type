@@ -27,6 +27,10 @@ function timeOn() {
     setTimer = 1;
  }
 
+ function timeOff() {
+    setTimer = 0;
+ }
+
 
 // /* Start button */
 // start.onclick = timer;
