@@ -27,6 +27,7 @@ function reset()
 	correctword = 0;
 	pert = 100;
 	percentage = pert.toFixed(2);
+	document.getElementById("accuracy").innerHTML = percentage + "%";
 
 	seconds = 0;
 	minutes = 0;
@@ -43,7 +44,7 @@ function keyed(e)
 		{
 			reset();
 		}
-		
+
 		timeOn();
 		let char = String.fromCharCode(keyCode)
 		//compare to the actual
