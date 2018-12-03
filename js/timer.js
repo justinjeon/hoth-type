@@ -7,3 +7,4 @@ function getwpm()
     //net wpm = ((typed letters / 5) * accuracy) / time
     return netwpm.toFixed(2);
 }
+//nice
