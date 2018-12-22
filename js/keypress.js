@@ -1,16 +1,16 @@
-current = ""; //current string
-index = 0; //where we at?
+let current = ""; //current string
+let index = 0; //where we at?
 
-count = 0; //how many letters in total
-wrong = 0; //how many wrong in total
-errs = 0; //current uncorrected errors
-errstack = [];
+let count = 0; //how many letters in total
+let wrong = 0; //how many wrong in total
+let errs = 0; //current uncorrected errors
+let errstack = [];
 
-wpm = 0;
-start = 0; //start time
-document.getElementById("wpm").innerHTML = wpm;
+let wpm = 0;
+let start = 0; //start time
+document.getElementById("wpm").innerHTML = wpm + " wpm";
 
-pert = 100;
+let pert = 100;
 percentage = pert.toFixed(2);
 document.getElementById("accuracy").innerHTML = percentage + "%";
 
@@ -57,7 +57,7 @@ function keyed(e)
 
 		//wpm
 		wpm = getwpm();
-		document.getElementById("wpm").innerHTML = wpm;
+		document.getElementById("wpm").innerHTML = wpm + " wpm";
 
 
 		//accuracy

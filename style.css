@@ -1,5 +1,5 @@
 body {
-	background-color: #66ccff;
+	background-color: #6699ff;
 
 }
 
@@ -17,4 +17,9 @@ p {
 div {
 	text-align: center;
 	font-size: 10px;
+}
+
+#underline {
+	text-decoration: underline;
+	text-decoration-color: red;
 }
